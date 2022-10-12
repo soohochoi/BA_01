@@ -99,6 +99,8 @@ def create_gen(num_target):
 ``` 
 #### 아스키 코드란?
   
-<p align="center"><img width="300" alt="image" src="https://user-images.githubusercontent.com/97882448/195251992-32f82332-b07d-4d85-a08e-45f6bb42f9cd.png">
+<p align="center"><img width="792" alt="image" src="https://user-images.githubusercontent.com/97882448/195253671-ffa0bb1c-6251-4bf7-8053-9cea2554a68a.png">
 
-* 숫자를 문자로 표현하는 방식이며 chr(숫자)-> 숫자에 맞는 아스키 코드를 반환함 반대로 ord(문자)-> 문자에 맞는 숫자를 반환함 
+* 숫자를 문자로 표현하는 방식임
+  * chr(숫자)-> 숫자에 맞는 아스키 코드를 반환함 
+  * 반대로 ord(문자)-> 문자에 맞는 숫자를 반환함 
