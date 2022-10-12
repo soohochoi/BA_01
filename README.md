@@ -189,12 +189,12 @@ def mutation(child, target, mutation_rate, num_target):
 ```                                                
 mutaion 함수를 통해 일단 child세대에서 dictionary를 ['K', 'O', 'R', 'E', 'u', ' ', 'U', 'N', 'I', 'V', 'R', 'R', 'S', 'I', 'T', 'Y', '!']이런 식으로 만들어줌
 거기서 mutaion rate을 0.1로 설정하였고  각 유전자의 갯수만큼 random(0~1)사이에서 난수를 생성하는데 0.1보다 작은 값이 나오면 ['K', 'O', 'R', 'E', 'u', ' ', 'Z', 'N', 'I', 'V', 'R', 'R', 'S', 'I', 'T', 'Y', '!']가 7번째에서 발생하여 바뀐것을 알수있음 
-* 나중에 나오겠지만 답이 KOREA UNIVERSITY! 인데 이같은 경우는 잘찾아가던 답이 바뀐것으로 좋은 mutaion은 아니였음
+* 나중에 나오겠지만 답이 KOREA UNIVERSITY! 인데 이같은 경우는 잘찾아가던 답이 바뀐것으로 좋은 mutation은 아니였음
 
 ``` python 
-# create new population with new best gen
+#최고의 염색체와 함께 새로운 generation을 만듬
 def regeneration(mutant, population_set):
-    print(len(population_set))
+    #print(len(population_set))
     #print(len(mutant))
     for i in range(len(mutant)):
         bad_gen = min(population_set, key=population_set.get)
@@ -202,4 +202,22 @@ def regeneration(mutant, population_set):
     population_set.update(mutant)
     #print(type(population_set))
     return population_set
+```
+mutant와 population_set를 통해 성능이 좋지 않은 염색체는 지우고 mutant를 시켰던 염색체를 update시켜줌
+
+``` python 
+# get best gen in a population
+def bestgen(parent):
+    gen = max(parent, key=parent.get)
+    return gen
+
+# get best fitness in a population
+def bestfitness(parent):
+    fitness = parent[max(parent, key=parent.get)]
+    return fitness
+
+# display function
+def display(parent):
+    timeDiff=datetime.datetime.now()-startTime
+    print('{}\t{}%\t{}'.format(bestgen(parent), round(bestfitness(parent), 2), timeDiff))
 ```
