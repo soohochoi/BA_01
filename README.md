@@ -54,5 +54,12 @@ GA의 전반적인 시스템을 설명하겠습니다. 중요한 용어가 selec
    
  <p align="center"><img width="810" alt="image" src="https://user-images.githubusercontent.com/97882448/195246971-9d6c5705-891d-4da3-97f2-02cc7f9e0397.png">
    
-#### Step.05 다음세대를 위해 
-#### Step.05 Selection을 통해 우수한 염색체를 선택하며 선택방식은 2가지가 있음ㅇㅟㅎ
+#### Step.05 다음세대에 더 좋은 염색체를 crossover하고 mutation을 진행시키는 과정임
+   
+ <p align="center"><img width="461" alt="image" src="https://user-images.githubusercontent.com/97882448/195247717-9d894e6c-cfe7-4d21-a6a5-6e418863cdb1.png">
+
+* 남녀의 염색체를 통해 남아 여아가 생성되는 것에 착안하여 다음세대 염색체를 생성함 1 cross over이면 위 그림처럼 한포인트를 바꿔 주고 2cross over이면 2개의 포인트를 바꿔 줌
+   
+<p align="center"><img width="459" alt="image" src="https://user-images.githubusercontent.com/97882448/195247835-01937ec1-1e61-47c3-bfff-e78ca79aab09.png">
+
+* mutation의 목적은 돌연변이를 통해 local optimal -> Global optimal로 바꿔 줌!
