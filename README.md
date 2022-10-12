@@ -264,14 +264,14 @@ while 1:
 
 * crossover를 통해 자식세대의 과정 다음 돌연변이 과정이 진행되는데 그 때 적합도가 100%이면 대상 단어와 추측이 동일하다고 판단이 되어져 과정이 중지됨
   
-파일을 실행하면 아래와 같은 화면이 나옴
+* 파일을 실행하면 아래와 같은 화면이 나옴
 <p align="center"><img width="398" alt="image" src="https://user-images.githubusercontent.com/97882448/195274508-cbc61432-6ce9-4fd0-9578-d7ea1c1add74.png">
 
 ---
 ## BA_01 차원축소 유전 알고리즘(Genetic Algorithm)_성능평가
   
- |target|반복횟수|평균시간|
-|------|---|---|
+ |Mutation rate|Max population|Mean time|
+|------|------|---|
 |테스트1|테스트2|테스트3|
 |테스트1|테스트2|테스트3|
 |테스트1|테스트2|테스트3|
