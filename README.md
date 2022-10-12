@@ -114,7 +114,7 @@ def calculate_fitness(gen, target, num_target):
     fitness = fitness / num_target * 100
     return fitness
 ``` 
-fitness 함수를 계산하는 함수를 만들어줌 염색체와 num_target의 위치와 문자가 같을 때 적합도가 올라감
+* fitness 함수를 계산하는 함수를 만들어줌 염색체와 num_target의 위치와 문자가 같을 때 적합도가 올라감
   
 ```python
 #인구수생성을 통해 dictionary에 넣어서 염색체를 만들고 적합도를 계산하는 과정
@@ -127,7 +127,7 @@ def create_population(target, max_population, num_target):
         #print(population_set)
     return population_set
 ``` 
-max_population을 통해 최대 인구수를 설정하고 population set이라는 dictionary을 만들었는데 1개씩 한염색체가 fitness가 얼마인지 계산해서 넣는 과정임 
+* max_population을 통해 최대 인구수를 설정하고 population set이라는 dictionary을 만들었는데 1개씩 한염색체가 fitness가 얼마인지 계산해서 넣는 과정임 
   * EX) i가 2번 돌았을때 {'E,r9..Jfq;$9(HNP\\': 0.0, '7yi/?B&XUx\\5hF6t#': 0.0} 
 
 ``` python  
@@ -148,7 +148,7 @@ max_population을 통해 최대 인구수를 설정하고 population set이라�
             del pop[gen]
     return parent
 ``` 
-population_set에서 우수한 염색체가 선별되는 과정임 fitness가 높은 염색체가 생선된 parent dictionary에 저장해줌
+* population_set에서 우수한 염색체가 선별되는 과정임 fitness가 높은 염색체가 생선된 parent dictionary에 저장해줌
   
 ``` python 
   # 교차를 할수 있도록 만드는 함수임
@@ -166,7 +166,7 @@ def crossover(parent, target, num_target):
     return child
 ```
   
-cp를 통해 문자의 길이의 반을 나눈다음에 gen을 통해 부모세대에서 성능이 좋았던 염색체를 교차시켜줌 그리고 child dictionary로 저장해주는 과정임
+* cp를 통해 문자의 길이의 반을 나눈다음에 gen을 통해 부모세대에서 성능이 좋았던 염색체를 교차시켜줌 그리고 child dictionary로 저장해주는 과정임
 
 ``` python 
 # mutation을 일으키는 함수
@@ -187,8 +187,8 @@ def mutation(child, target, mutation_rate, num_target):
         mutant[gen] = genfitness
     return mutant
 ```                                                
-mutaion 함수를 통해 일단 child세대에서 dictionary를 ['K', 'O', 'R', 'E', 'u', ' ', 'U', 'N', 'I', 'V', 'R', 'R', 'S', 'I', 'T', 'Y', '!']이런 식으로 만들어줌
-거기서 mutaion rate을 0.1로 설정하였고  각 유전자의 갯수만큼 random(0~1)사이에서 난수를 생성하는데 0.1보다 작은 값이 나오면 ['K', 'O', 'R', 'E', 'u', ' ', 'Z', 'N', 'I', 'V', 'R', 'R', 'S', 'I', 'T', 'Y', '!']가 7번째에서 발생하여 바뀐것을 알수있음 
+* 돌연변이 함수를 통해 일단 child세대에서 dictionary를 ['K', 'O', 'R', 'E', 'u', ' ', 'U', 'N', 'I', 'V', 'R', 'R', 'S', 'I', 'T', 'Y', '!']이런 식으로 만들어줌                                                
+* mutaion rate을 0.1로 설정하였고  각 유전자의 갯수만큼 random(0~1)사이에서 난수를 생성하는데 0.1보다 작은 값이 나오면 ['K', 'O', 'R', 'E', 'u', ' ', 'Z', 'N', 'I', 'V', 'R', 'R', 'S', 'I', 'T', 'Y', '!']가 7번째에서 발생하여 바뀐것을 알수있음 
 * 나중에 나오겠지만 답이 KOREA UNIVERSITY! 인데 이같은 경우는 잘찾아가던 답이 바뀐것으로 좋은 mutation은 아니였음
 
 ``` python 
@@ -203,7 +203,7 @@ def regeneration(mutant, population_set):
     #print(type(population_set))
     return population_set
 ```
-mutant와 population_set를 통해 성능이 좋지 않은 염색체는 지우고 mutant를 시켰던 염색체를 update시켜줌
+* mutant와 population_set를 통해 성능이 좋지 않은 염색체는 지우고 mutant를 시켰던 염색체를 update시켜줌
 
 ``` python 
 # 최고의 염색체를 추출하는 함수
@@ -221,11 +221,12 @@ def display(parent):
     timeDiff=datetime.datetime.now()-startTime
     print('{}\t{}%\t{}'.format(bestgen(parent), round(bestfitness(parent), 2), timeDiff))
 ```
-마지막 함수에대해서 추가설명을 하자면 맨앞에서 불러온 datatime을 통해 최고의 parent을 추출하는데 걸린 시간과  fitness값을 가시성 좋게 소수 3번째에서 반올림한것을 알수있음
+* 마지막 함수에대해서 추가설명을 하자면 맨앞에서 불러온 datatime을 통해 최고의 parent을 추출하는데 걸린 시간과  fitness값을 가시성 좋게 소수 3번째에서 반올림한것을 알수있음
 
 ``` python 
-# main program
+# 하이퍼파라미터처럼 무엇을 맞출것인지? 염색체 생성갯수, mutation(돌연변이)율도 설정가능함 
 target = 'KOREA UNIVERSITY!'
-max_population = 10
+max_population = 100
 mutation_rate = 0.1
 ```
+* 위 코드보다시피 target은 KOREA UNIVERSITY!로 설정하였고 염색체 생성갯수는 100 돌연변이율은 0.1로 설정하였
