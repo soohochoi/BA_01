@@ -116,5 +116,52 @@ def calculate_fitness(gen, target, num_target):
 ``` 
 fitness 함수를 계산하는 함수를 만들어줌 염색체와 num_target의 위치와 문자가 같을 때 적합도가 올라감
   
+```python
+#인구수생성을 통해 dictionary에 넣어서 염색체를 만들고 적합도를 계산하는 과정
+def create_population(target, max_population, num_target):
+    population_set = {}
+    for i in range(max_population):
+        gen = create_gen(num_target)
+        genfitness = calculate_fitness(gen, target, num_target)
+        population_set[gen] = genfitness
+        #print(population_set)
+    return population_set
+``` 
+max_population을 통해 최대 인구수를 설정하고 population set이라는 dictionary을 만들었는데 1개씩 한염색체가 fitness가 얼마인지 계산해서 넣는 과정임 
+  * EX) i가 2번 돌았을때 {'E,r9..Jfq;$9(HNP\\': 0.0, '7yi/?B&XUx\\5hF6t#': 0.0} 
 
+``` python  
+  # 염색체에서 우수한 염색체를 선별하는 함수임
+  def selection(population_set):
+    pop = dict(population_set)
+    #print(pop)
+    parent = {}
+    for i in range(2):
+        #pop에서 max값을 가진 value를 뱉어줌
+        gen = max(pop, key=pop.get)
+        #print(gen)
+        genfitness = pop[gen]
+        #print(genfitness)
+        parent[gen] = genfitness
+        #2개를 넣어야하니깐 처음꺼는 if를 통해 지워줌
+        if i == 0:
+            del pop[gen]
+    return parent
+``` 
+population_set에서 우수한 염색체가 선별되는 과정임 fitness가 높은 염색체가 생선된 parent dictionary에 저장해줌
   
+``` python 
+  # crossover
+def crossover(parent, target, num_target):
+    child = {}
+    #dic을 list로 바꾸어서 1crossover를 할수 있도록 만듦->cp
+    cp = round(len(list(parent)[0])/2)
+    #print(list(parent))
+    for i in range(2):
+        gen = list(parent)[i][:cp] + list(parent)[1-i][cp:]
+        #print(gen)
+        genfitness = calculate_fitness(gen, target, num_target)
+        child[gen] = genfitness
+        #print(len(child))
+    return child
+```
