@@ -35,13 +35,13 @@ GA의 전반적인 시스템을 설명하겠습니다. 중요한 용어가 selec
 * 종료조건은 보통 향상이 더이상 되지 않거나 반복을 최대로 했을 때 둘 중 하나가 만족하면 종료함 
 <p align="center"><img width="808" alt="image" src="https://user-images.githubusercontent.com/97882448/195242232-c64100c2-6dc6-4a40-ac53-97c11423f201.png">
 
-* 벡터들을 일단 chrobosome(염색체)라고 부르고 그 안에있는 유전자를 gene이라고 부릅니다. 위에 그림은 차원축소의 예시로 변수를 사용하면 1 아니면 0이라고 설정합니다.
+* 벡터들을 일단 chrobosome(염색체)라고 부르고 그 안에있는 유전자를 gene이라고 부릅니다. 위에 그림은 차원축소의 예시로 변수를 사용하면 1 아니면 0이라고 설정함
 
 <p align="center"><img width="810" alt="image" src="https://user-images.githubusercontent.com/97882448/195243740-8dc33a23-ed34-421a-8aa8-59fc5e2d9016.png">
 
 #### Step.02,03 파라미터 설정이 완료되었으면 선택된 변수별로 모델을 훈련시키고 훈련된 변수 모델들이 얼마나 모델을 잘 표현하는지에 대한 적합도를 평가함
 
-* 염색체의 수만큼 모델을 만들고 fitness function을 통해 모델을 평가하는 과정입니다.
+* 염색체의 수만큼 모델을 만들고 fitness function을 통해 모델을 평가하는 과정임
   
  <p align="center"> <img width="810" alt="image" src="https://user-images.githubusercontent.com/97882448/195245282-312b2035-82bf-4f8b-ba6d-090adbee6d29.png">
 
@@ -62,8 +62,16 @@ GA의 전반적인 시스템을 설명하겠습니다. 중요한 용어가 selec
    
 <p align="center"><img width="459" alt="image" src="https://user-images.githubusercontent.com/97882448/195247835-01937ec1-1e61-47c3-bfff-e78ca79aab09.png">
 
-* mutation의 목적은 돌연변이를 통해 local optimal -> Global optimal로 바꿔 줌!
+* mutation의 목적은 돌연변이를 통해 local optimal -> Global optimal로 바꿔 줌
 
 <p align="center"><img width="810" alt="image" src="https://user-images.githubusercontent.com/97882448/195248105-c73b1ebd-2697-4d8d-8bac-da5d280050fd.png">
 
-#### Step.06 최선해가 나올 때 Step.02부터 Step. 05까지를 반복함
+#### Step.06 최선해가 나올 때 Step.02부터 Step.05까지를 반복함
+
+<p align="center"><img width="495" alt="image" src="https://user-images.githubusercontent.com/97882448/195249507-1995a512-004d-4aa6-a227-ede63ed0e714.png">
+
+* 위 그림처럼 GA의 성능은 초반에  fitness value가 급격하게 감소하다 완만해짐 
+* 안전장치로서, 이전 세대의 best 염색체들을 다음 세대에 그대로 가져와서 성능이 감소되지 않도록 이용하기도 함 
+* 학습 종료 조건은 다음과 같음
+  * 더이상 성능 향상이 일어나지 않을 때
+  * 초기에 설정해 둔 반복 횟수에 도달되었을 때
