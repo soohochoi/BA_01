@@ -83,8 +83,7 @@ GA의 전반적인 시스템을 설명하겠습니다. 중요한 용어가 selec
 ```python
 #만약에 numpy와 datatime이 없다면 install 해주도록한다  
 import numpy as np
-import datetime
-  
+import datetime  
 ```
 유전 알고리즘을 실행할때 필요한 package들이다.
 
@@ -104,3 +103,18 @@ def create_gen(num_target):
 * 숫자를 문자로 표현하는 방식임
   * chr(숫자)-> 숫자에 맞는 아스키 코드를 반환함 
   * 반대로 ord(문자)-> 문자에 맞는 숫자를 반환함 
+
+```python
+#염색체의 적합도를 계산함
+def calculate_fitness(gen, target, num_target):
+    fitness = 0
+    for i in range (num_target):
+        if gen[i:i+1] == target[i:i+1]:
+            fitness += 1
+    fitness = fitness / num_target * 100
+    return fitness
+``` 
+fitness 함수를 계산하는 함수를 만들어줌 염색체와 num_target의 위치와 문자가 같을 때 적합도가 올라감
+  
+
+  
