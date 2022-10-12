@@ -2,7 +2,7 @@
 
 <p align="center"><img src="https://user-images.githubusercontent.com/97882448/195100669-4eea03a4-42e9-47d1-815a-7786f3285caa.png" width="50%" height="50%"/>
 
-## BA_01 차원축소 유전 알고리즘(Genetic Algorithm)
+## BA_01 차원축소 유전 알고리즘(Genetic Algorithm)_개념설명
 
 먼저 이자료는 고려대학교 비니지스 애널리틱스 강필성교수님께 배운 유전 알고리즘을 바탕으로 만들어졌습니다.
 
@@ -75,3 +75,14 @@ GA의 전반적인 시스템을 설명하겠습니다. 중요한 용어가 selec
 * 학습 종료 조건은 다음과 같음
   * 더이상 성능 향상이 일어나지 않을 때
   * 초기에 설정해 둔 반복 횟수에 도달되었을 때
+
+---
+  
+## BA_01 차원축소 유전 알고리즘(Genetic Algorithm)_코드설명
+  
+```python
+  
+import numpy as np
+import datetime
+  
+```
