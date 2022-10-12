@@ -63,3 +63,7 @@ GA의 전반적인 시스템을 설명하겠습니다. 중요한 용어가 selec
 <p align="center"><img width="459" alt="image" src="https://user-images.githubusercontent.com/97882448/195247835-01937ec1-1e61-47c3-bfff-e78ca79aab09.png">
 
 * mutation의 목적은 돌연변이를 통해 local optimal -> Global optimal로 바꿔 줌!
+
+<p align="center"><img width="810" alt="image" src="https://user-images.githubusercontent.com/97882448/195248105-c73b1ebd-2697-4d8d-8bac-da5d280050fd.png">
+
+#### Step.06 최선해가 나올 때 Step.02부터 Step. 05까지를 반복함
