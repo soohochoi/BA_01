@@ -229,4 +229,38 @@ target = 'KOREA UNIVERSITY!'
 max_population = 100
 mutation_rate = 0.1
 ```
-* 위 코드보다시피 target은 KOREA UNIVERSITY!로 설정하였고 염색체 생성갯수는 100 돌연변이율은 0.1로 설정하였
+* 위 코드보다시피 target은 KOREA UNIVERSITY!로 설정하였고 염색체 생성갯수는 100 돌연변이율은 0.1로 설정하였음
+
+``` python 
+print('Target Word :', target)
+print('Max Population :', max_population)
+print('Mutation Rate :', mutation_rate)
+
+#target의 길이
+num_target = len(target)
+startTime=datetime.datetime.now()
+print('################################################')
+print('\t{}\t\t\t{}\t\t{}'.format('The Best','Fitness','Time'))
+print('################################################')
+population_set = create_population(target, int(max_population), num_target)
+parent = selection(population_set)
+display(parent)
+``` 
+* 정의 하였던 함수를 연결시켜주는 과정임 그리고 print 해줌 
+
+``` python
+#while 1 : 항상실행하라는 뜻임                                                 
+while 1:
+    child = crossover(parent, target, num_target)
+    mutant = mutation(child, target, float(mutation_rate), num_target)
+    if bestfitness(parent) >= bestfitness(mutant):
+        continue
+    population_set = regeneration(mutant, population_set)
+    parent = selection(population_set)
+    display(parent)
+    if bestfitness(mutant) == 100:
+        break
+```
+
+* crossover를 통해 자식세대의 과정 다음 돌연변이 과정이 진행되는데 그 때 적합도가 100%이면 대상 단어와 추측이 동일하다고 판단이 되어져 과정이 중지됨
+---
