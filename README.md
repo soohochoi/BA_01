@@ -169,7 +169,7 @@ def crossover(parent, target, num_target):
 cp를 통해 문자의 길이의 반을 나눈다음에 gen을 통해 부모세대에서 성능이 좋았던 염색체를 교차시켜줌 그리고 child dictionary로 저장해주는 과정임
 
 ``` python 
-# mutation
+# mutation을 일으키는 함수
 def mutation(child, target, mutation_rate, num_target):
     mutant = {}
     for i in range(len(child)):
@@ -206,18 +206,26 @@ def regeneration(mutant, population_set):
 mutant와 population_set를 통해 성능이 좋지 않은 염색체는 지우고 mutant를 시켰던 염색체를 update시켜줌
 
 ``` python 
-# get best gen in a population
+# 최고의 염색체를 추출하는 함수
 def bestgen(parent):
     gen = max(parent, key=parent.get)
     return gen
 
-# get best fitness in a population
+# 최고의 염색체에서 좋은성능을 가진 fitness값을 추출하는 함수
 def bestfitness(parent):
     fitness = parent[max(parent, key=parent.get)]
     return fitness
 
-# display function
+# 위에서 정의한 2개의 함수를 시간과 같이 추출함 
 def display(parent):
     timeDiff=datetime.datetime.now()-startTime
     print('{}\t{}%\t{}'.format(bestgen(parent), round(bestfitness(parent), 2), timeDiff))
+```
+마지막 함수에대해서 추가설명을 하자면 맨앞에서 불러온 datatime을 통해 최고의 parent을 추출하는데 걸린 시간과  fitness값을 가시성 좋게 소수 3번째에서 반올림한것을 알수있음
+
+``` python 
+# main program
+target = 'KOREA UNIVERSITY!'
+max_population = 10
+mutation_rate = 0.1
 ```
