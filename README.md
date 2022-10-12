@@ -269,9 +269,10 @@ while 1:
 
 ---
 ## BA_01 차원축소 유전 알고리즘(Genetic Algorithm)_성능평가
-  
- |Mutation rate|Max population|Mean time|
+* Target은 KOREA UNIVERSITY!로 하고  Mutaion rate를 0.1 ,0.2 0.3 로 바꾸어 5번씩 반복실험을 한 결과이고 평균시간은 소수점 3번째 자리에서 반올림 하였음
+|Mutation rate|Max population|Mean time|
 |------|------|---|
-|테스트1|테스트2|테스트3|
-|테스트1|테스트2|테스트3|
-|테스트1|테스트2|테스트3|
+|0.1|100|1.867|
+|0.2|100|4.471|
+|0.3|100|27.671|
+
