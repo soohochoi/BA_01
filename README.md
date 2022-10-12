@@ -81,8 +81,24 @@ GA의 전반적인 시스템을 설명하겠습니다. 중요한 용어가 selec
 ## BA_01 차원축소 유전 알고리즘(Genetic Algorithm)_코드설명
   
 ```python
-  
+#만약에 numpy와 datatime이 없다면 install 해주도록한다  
 import numpy as np
 import datetime
   
 ```
+유전 알고리즘을 실행할때 필요한 package들이다.
+
+```python
+  # 아스키코드를 통해 새로운 염색체를 만드는 과정임
+def create_gen(num_target):
+    random_number = np.random.randint(32, 126, size=num_target)
+    #['a', 'b', 'c'] 이런 식의 리스트를 'abc'의 문자열로 합쳐서 반환
+    gen = ''.join([chr(i) for i in random_number])
+    print(gen)
+    return gen
+``` 
+#### 아스키 코드란?
+  
+<p align="center"><img width="300" alt="image" src="https://user-images.githubusercontent.com/97882448/195251992-32f82332-b07d-4d85-a08e-45f6bb42f9cd.png">
+
+* 숫자를 문자로 표현하는 방식이며 chr(숫자)-> 숫자에 맞는 아스키 코드를 반환함 반대로 ord(문자)-> 문자에 맞는 숫자를 반환함 
