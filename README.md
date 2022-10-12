@@ -269,19 +269,22 @@ while 1:
 
 ---
 ## BA_01 차원축소 유전 알고리즘(Genetic Algorithm)_성능평가
-* Target은 KOREA UNIVERSITY!로 설정
+* Target은 KOREA UNIVERSITY!로 설정후 Mutation을 변경
   * Mutaion rate를 0.1 ,0.2 0.3 로 바꾸어 5번씩 반복실험을 진행함
   * Meantime은 소수점 3번째 자리에서 반올림 하였음
+  
  <p align="center"><img width="393" alt="image" src="https://user-images.githubusercontent.com/97882448/195283265-8565a943-ea3a-4e2e-a7b5-d56a3eaee800.png">
-  - mutation율이 올라갈수록 Target을 잘 찾지 못함
-  - 초반에 fitness function이 성능이 많이 올라오지만 mutaion율이 올라갈수록 Target값을 찾는데 방해를 하는것을 볼수 있음 
    
-  * 염색의 수를 를 10 , 100 , 1000 로 바꾸어 5번씩 반복실험을 진행함
+  1. mutation율이 올라갈수록 Target을 잘 찾지 못함
+  2. 초반에 fitness function이 성능이 많이 올라오지만 mutaion율이 올라갈수록 Target값을 찾는데 방해를 하는것을 볼수 있음 
+
+* Target은 KOREA UNIVERSITY!로 설정후 Max population을 변경   
+  * population수를 를 10 , 100 , 1000 로 바꾸어 5번씩 반복실험을 진행함
   * Meantime은 소수점 3번째 자리에서 반올림 하였음  
  
 |Mutation rate|Max population|Mean time|
 |:------:|:------:|:---:|
-|**0.1**|100|1.867|
-|**0.2**|100|4.471|
-|**0.3**|100|27.671|
+|0.1|**10**|2.771|
+|0.1|**100**|3.759|
+|0.1|**1000**|2.876|
 
