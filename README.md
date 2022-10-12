@@ -41,4 +41,18 @@ GA의 전반적인 시스템을 설명하겠습니다. 중요한 용어가 selec
 
 #### Step.02,03 파라미터 설정이 완료되었으면 선택된 변수별로 모델을 훈련시키고 훈련된 변수 모델들이 얼마나 모델을 잘 표현하는지에 대한 적합도를 평가함
 
-*
+* 염색체의 수만큼 모델을 만들고 fitness function을 통해 모델을 평가하는 과정입니다.
+  
+ <p align="center"> <img width="810" alt="image" src="https://user-images.githubusercontent.com/97882448/195245282-312b2035-82bf-4f8b-ba6d-090adbee6d29.png">
+
+#### Step.04 Selection을 통해 우수한 염색체를 선택하며 선택방식은 2가지가 있음
+   
+* Deterministic selection: 살릴 염색체와 버릴 염색체를 구분 지어 살릴 염색체만 채택하고 나머지는 버림
+    * EX) 100개의 염색체중 30%만 살릴 염색체면 70%인 70개는 버림
+* Probabilistic selection: 적합도 평가를 기준으로 모든 염색체에게 기회를 줌 대신 1등부터 꼴등까지 가중치(selection weight)를 정의 후 확률적으로 염색체를 선택하도록 함
+    * EX) 100개의 염색체를 적합도 평가가 우수한기준으로 순서를 매긴후 1등에게 가장 많은 가중치를 꼴등에겐 가장 적은 가중치를 주어 selection함
+   
+ <p align="center"><img width="810" alt="image" src="https://user-images.githubusercontent.com/97882448/195246971-9d6c5705-891d-4da3-97f2-02cc7f9e0397.png">
+   
+#### Step.05 다음세대를 위해 
+#### Step.05 Selection을 통해 우수한 염색체를 선택하며 선택방식은 2가지가 있음ㅇㅟㅎ
