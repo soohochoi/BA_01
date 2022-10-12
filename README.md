@@ -165,4 +165,27 @@ def crossover(parent, target, num_target):
         #print(len(child))
     return child
 ```
-cp를 통해 문자의 길이의 반을 나눈다음에 gen을 통해 부모세대에서 성능이 좋았던 염색체를 교차시켜줌 그리고 child dictionary로 바꾸어주는 과정임
+  
+cp를 통해 문자의 길이의 반을 나눈다음에 gen을 통해 부모세대에서 성능이 좋았던 염색체를 교차시켜줌 그리고 child dictionary로 저장해주는 과정임
+
+``` python 
+# mutation
+def mutation(child, target, mutation_rate, num_target):
+    mutant = {}
+    for i in range(len(child)):
+        data = list(list(child)[i])
+        #print(len(data))
+        for j in range(len(data)):
+            #랜덤이 0에서 1사이 나오는 점수에서 넘나 안넘나를 보면 됨
+            if np.random.rand(1) <= mutation_rate:
+                ch = chr(np.random.randint(32, 126))
+                #print(ch)
+                data[j] = ch
+                #print(data)
+        gen = ''.join(data)
+        genfitness = calculate_fitness(gen, target, num_target)
+        mutant[gen] = genfitness
+    return mutant
+```                                                
+mutaion 함수를 통해 일단 child세대에서 dictionary를 ['K', 'O', 'R', 'E', 'u', ' ', 'U', 'N', 'I', 'V', 'R', 'R', 'S', 'I', 'T', 'Y', '!']이런 식으로 만들어줌
+거기서 mutaion rate을 0.1로 설정하였고  각 유전자의 갯수만큼 random(0~1)사이에서 난수를 생성하는데 0.1보다 작은 값이 나오면 ['K', 'O', 'R', 'E', 'u', ' ', 'Z', 'N', 'I', 'V', 'R', 'R', 'S', 'I', 'T', 'Y', '!']가 7번째에서 발생하여 바뀐것을 알수있음 나중에 나오겠지만 답이 KOREA UNIVERSITY! 인데 이같은 경우는 잘찾아가던 답이 바뀐것으로 좋은 mutaion은 아니였음
