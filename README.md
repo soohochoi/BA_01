@@ -151,10 +151,10 @@ max_population을 통해 최대 인구수를 설정하고 population set이라�
 population_set에서 우수한 염색체가 선별되는 과정임 fitness가 높은 염색체가 생선된 parent dictionary에 저장해줌
   
 ``` python 
-  # crossover
+  # 교차를 할수 있도록 만드는 함수임
 def crossover(parent, target, num_target):
     child = {}
-    #dic을 list로 바꾸어서 1crossover를 할수 있도록 만듦->cp
+    #dic을 list로 바꾸어서 가운데로 잘라서 1crossover를 할수 있도록 만들어줌->cp
     cp = round(len(list(parent)[0])/2)
     #print(list(parent))
     for i in range(2):
@@ -165,3 +165,4 @@ def crossover(parent, target, num_target):
         #print(len(child))
     return child
 ```
+cp를 통해 문자의 길이의 반을 나눈다음에 gen을 통해 부모세대에서 성능이 좋았던 염색체를 교차시켜줌 그리고 child dictionary로 바꾸어주는 과정임
