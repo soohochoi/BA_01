@@ -282,9 +282,11 @@ while 1:
   * population수를 를 10 , 100 , 1000 로 바꾸어 5번씩 반복실험을 진행함
   * Meantime은 소수점 3번째 자리에서 반올림 하였음  
  
-|Mutation rate|Max population|Mean time|
-|:------:|:------:|:---:|
-|0.1|**10**|2.771|
-|0.1|**100**|3.759|
-|0.1|**1000**|2.876|
+ <p align="center"><img width="390" alt="image" src="https://user-images.githubusercontent.com/97882448/195286453-9f46d800-0190-4688-addb-cd22038833c3.png">
 
+   1. 염색채수가 10개는 너무 작은것같고 1000개는 너무 많았던것 같음 100개가 제일 성능이 좋게나옴
+   2. Meantime은 소수점 3번째 자리에서 반올림 하였음  
+---
+ ### Reference
+ 1. https://sustaining-starflower-aff.notion.site/2022-2-0e068bff3023401fa9fa13e96c0269d7 <강필성교수님 자료>
+ 2. https://github.com/2black0/ <GA코드 참조>
